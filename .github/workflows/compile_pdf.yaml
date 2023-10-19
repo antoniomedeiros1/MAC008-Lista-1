@@ -34,6 +34,8 @@ jobs:
     
     - name: Custom fix
       run: |
+        sed "s/if 'date' in nb.metadata/if true/g" .venv/share/jupyter/nbconvert/templates/latex/base.tex.j2 -i
+        sed "s/if 'authors' in nb.metadata/if true/g" .venv/share/jupyter/nbconvert/templates/latex/base.tex.j2 -i
         sed "s/title{.*}/title{MAC008 - Introdução ao Método dos Elementos Finitos - Lista 1}/g" .venv/share/jupyter/nbconvert/templates/latex/base.tex.j2 -i
         sed "s/date{.*}/date{}/g" .venv/share/jupyter/nbconvert/templates/latex/base.tex.j2 -i
         sed "s/author{.*}/author{Antonio José de Medeiros Filho}/g" .venv/share/jupyter/nbconvert/templates/latex/base.tex.j2 -i

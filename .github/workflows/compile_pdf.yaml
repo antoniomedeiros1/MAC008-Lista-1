@@ -7,11 +7,19 @@ jobs:
     name: Compile Notebooks
     runs-on: ubuntu-22.04
     steps:
+    - name: Checkout actions
+      uses: actions/checkout@v3
     
-    - name: Install requirements
-      shell: bash
-      run: pip install -r requirements.txt
+    - name: Install Requirements
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
     
     - name: Compile PDF
       shell: bash
       run: python3 -m bookbook.latex --pdf --output-file relatorio.pdf
+
+    - name: Commit & Push changes
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

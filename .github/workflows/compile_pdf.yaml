@@ -15,6 +15,13 @@ jobs:
       with:
         path: "./requirements.txt"
     
+    - name: Install Pandoc
+      shell: bash
+      run: |
+        wget https://github.com/jgm/pandoc/releases/download/2.14/pandoc-2.14-1-amd64.deb
+        sudo dpkg -i pandoc-2.14-1-amd64.deb
+        sudo apt-get install -f
+    
     - name: Compile PDF
       shell: bash
       run: python3 -m bookbook.latex --pdf --output-file relatorio.pdf

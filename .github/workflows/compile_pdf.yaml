@@ -24,7 +24,8 @@ jobs:
     
     - name: Install xelatex
       run: |
-        sudo apt-get install texlive-xetex
+        sudo apt update
+        sudo apt install texlive-xetex
     
     - name: Compile PDF
       shell: bash

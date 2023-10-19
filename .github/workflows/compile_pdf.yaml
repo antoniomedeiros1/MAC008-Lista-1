@@ -39,7 +39,10 @@ jobs:
     
     - name: Compile PDF templated
       shell: bash
-      run: python3 -m bookbook.latex --output-file relatorio.pdf --pdf --template templates/*
+      run: |
+        cd ${{ github.workspace }}
+        source .venv/bin/activate 
+        python3 -m bookbook.latex --output-file relatorio.pdf --pdf --template templates/*
 
     - name: Commit & Push changes
       uses: actions-js/push@master

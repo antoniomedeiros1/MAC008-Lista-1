@@ -10,11 +10,10 @@ jobs:
     - name: Checkout actions
       uses: actions/checkout@v3
     
-    - name: Install Requirements
-      shell: bash
-      run: |
-        cd ${{ github.action_path }}
-        pip install -r requirements.txt
+    - name: Install Python dependencies
+      uses: py-actions/py-dependency-install@v4
+      with:
+        path: "./requirements.txt"
     
     - name: Compile PDF
       shell: bash

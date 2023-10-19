@@ -15,7 +15,8 @@ jobs:
         pip install virtualenv
         cd ${{ github.workspace }}
         python3 -m venv .venv
-        pip install requirements.txt
+        source .venv/bin/activate
+        pip install -r ./requirements.txt
         cd -
     
     - name: Install Pandoc

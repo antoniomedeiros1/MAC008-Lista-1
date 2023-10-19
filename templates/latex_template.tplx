@@ -1,0 +1,9 @@
+((*- extends 'base' -*))
+
+((* block title *))
+\title{MAC008 - Introdução ao Método dos Elementos Finitos - Lista 1}
+((* endblock title *))
+
+((* block date *))
+\date{}
+((* endblock date *))

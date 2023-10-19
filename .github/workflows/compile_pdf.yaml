@@ -10,10 +10,13 @@ jobs:
     - name: Checkout actions
       uses: actions/checkout@v3
     
-    - name: Install Python dependencies
-      uses: py-actions/py-dependency-install@v4
-      with:
-        path: "./requirements.txt"
+    - name: Python Setup
+      run: |
+        pip install virtualenv
+        cd ${{ github.workspace }}
+        python3 -m venv .venv
+        pip install requirements.txt
+        cd -
     
     - name: Install Pandoc
       shell: bash
@@ -28,9 +31,14 @@ jobs:
         sudo apt update
         sudo apt install texlive-xetex
     
-    - name: Compile PDF
+    - name: Copy template
+      run: |
+        cd ${{ github.workspace }}
+        cp templates/* .venv/share/jupyter/nbconvert/templates/latex/
+    
+    - name: Compile PDF templated
       shell: bash
-      run: python3 -m bookbook.latex --pdf --output-file relatorio.pdf
+      run: python3 -m bookbook.latex --output-file relatorio.pdf --pdf --template templates/*
 
     - name: Commit & Push changes
       uses: actions-js/push@master

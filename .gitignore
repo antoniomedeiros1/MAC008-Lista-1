@@ -1,5 +1,3 @@
 .venv
 .ipynb*
-*.pdf
 .vscode
-!relatorio.pdf

@@ -22,6 +22,10 @@ jobs:
         sudo dpkg -i pandoc-2.14-1-amd64.deb
         sudo apt-get install -f
     
+    - name: Install xelatex
+      run: |
+        sudo apt-get install texlive-xetex
+    
     - name: Compile PDF
       shell: bash
       run: python3 -m bookbook.latex --pdf --output-file relatorio.pdf

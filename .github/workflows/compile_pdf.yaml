@@ -21,6 +21,7 @@ jobs:
         wget https://github.com/jgm/pandoc/releases/download/2.14/pandoc-2.14-1-amd64.deb
         sudo dpkg -i pandoc-2.14-1-amd64.deb
         sudo apt-get install -f
+        rm pandoc-2.14-1-amd64.deb
     
     - name: Install xelatex
       run: |

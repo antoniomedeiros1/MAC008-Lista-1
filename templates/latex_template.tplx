@@ -1,4 +1,4 @@
-((*- extends 'article.tplx' -*))
+((*- extends 'base.tex.j2' -*))
 
 ((* block title *))
 \title{MAC008 - Introdução ao Método dos Elementos Finitos - Lista 1}

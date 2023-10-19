@@ -1,0 +1,17 @@
+name: Compile PDF
+on:
+  push:
+
+jobs:
+  compile:
+    name: Compile Notebooks
+    runs-on: ubuntu-22.04
+    steps:
+    
+    - name: Install requirements
+      shell: bash
+      run: pip install -r requirements.txt
+    
+    - name: Compile PDF
+      shell: bash
+      run: python3 -m bookbook.latex --pdf --output-file relatorio.pdf

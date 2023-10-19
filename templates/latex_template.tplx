@@ -1,9 +1,13 @@
-((*- extends 'base' -*))
+((*- extends 'article.tplx' -*))
 
 ((* block title *))
 \title{MAC008 - Introdução ao Método dos Elementos Finitos - Lista 1}
 ((* endblock title *))
 
 ((* block date *))
-\date{Antônio José de Medeiros Filho - 201965502B}
+\date{}
 ((* endblock date *))
+
+((* block author *))
+\author{Antonio José de Medeiros Filho - 201965502B}
+((* endblock author *))

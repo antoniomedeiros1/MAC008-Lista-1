@@ -13,18 +13,8 @@ jobs:
     - name: Setup Python
       uses: ./.github/actions/python-setup
     
-    - name: Install Pandoc
-      shell: bash
-      run: |
-        wget https://github.com/jgm/pandoc/releases/download/2.14/pandoc-2.14-1-amd64.deb
-        sudo dpkg -i pandoc-2.14-1-amd64.deb
-        sudo apt-get install -f
-        rm pandoc-2.14-1-amd64.deb
-    
-    - name: Install xelatex
-      run: |
-        sudo apt update
-        sudo apt install texlive-xetex
+    - name: Install Pandoc and xelatex
+      uses: ./.github/actions/install-pandoc
     
     - name: Custom fix
       run: |

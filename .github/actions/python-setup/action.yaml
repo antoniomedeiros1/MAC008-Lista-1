@@ -18,5 +18,3 @@ runs:
       shell: bash
     - run: pip install -r ${{ inputs.requirements-file }}
       shell: bash
-    - run: cd -
-      shell: bash

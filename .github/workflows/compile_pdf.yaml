@@ -10,14 +10,8 @@ jobs:
     - name: Checkout actions
       uses: actions/checkout@v3
     
-    - name: Python Setup
-      run: |
-        pip install virtualenv
-        cd ${{ github.workspace }}
-        python3 -m venv .venv
-        source .venv/bin/activate
-        pip install -r ./requirements.txt
-        cd -
+    - name: Setup Python
+      uses: ./.github/actions/python-setup
     
     - name: Install Pandoc
       shell: bash

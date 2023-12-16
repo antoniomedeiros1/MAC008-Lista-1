@@ -1,0 +1,22 @@
+name: 'Setup Python'
+description: 'Setup Python environment by sourcing venv and installing requirements.txt'
+inputs:
+  requirements-file:
+    description: 'Path to requirements.txt file'
+    required: true
+    default: './requirements.txt'
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Checkout actions'
+      uses: 'actions/checkout@v3'
+    - run: cd ${{ github.workspace }}
+      shell: bash
+    - run: pip install virtualenv
+      shell: bash
+    - run: python3 -m venv .venv && source .venv/bin/activate
+      shell: bash
+    - run: pip install -r ${{ inputs.requirements-file }}
+      shell: bash
+    - run: cd -
+      shell: bash

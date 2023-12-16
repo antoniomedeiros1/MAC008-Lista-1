@@ -10,11 +10,11 @@ runs:
   steps:
     - name: 'Checkout actions'
       uses: 'actions/checkout@v3'
-    - run: cd ${{ github.workspace }}
-      shell: bash
-    - run: pip install virtualenv
-      shell: bash
-    - run: python3 -m venv .venv && source .venv/bin/activate
-      shell: bash
-    - run: pip install -r ${{ inputs.requirements-file }}
+    - run: |
+          cd ${{ github.workspace }}
+          pip install virtualenv
+          python3 -m venv .venv 
+          source .venv/bin/activate
+          pip install -r ${{ inputs.requirements-file }}
+          cd -
       shell: bash
